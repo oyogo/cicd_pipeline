@@ -1,4 +1,8 @@
-# SPATIAL DASHBOARDS CICD PIPELINE
+# DASHBOARDS CICD PIPELINE
+This is a workflow that updates dashboards running on shinyproxy. The pipeline begins with a push event to the master branch on GitHub which in turn triggers GitHub actions during which the dashboard image is built and then sent to dockerhub. The push event to dockerhub then sends a webhook to a FastAPI app in the server where the shinyproxy system is hosted. Upon successful checks the image gets pulled from dockerhub and shinyproxy picks it up automatically and there you have your dashboard updated automatically !  
+ 
+Now let's break down that process into the various components mentioned afore.   
+
 ## API 
 What's an API? 
 Its simply an application that sits between a web server and an application to facilitate data transfer. The image below does some justice in explaining how it works. 
